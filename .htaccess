@@ -33,3 +33,9 @@ RedirectMatch 301 ^/self-storage-paisley/?$ /paisley.html
 </IfModule>
 
 # --- keep the archived WordPress reachable at /old/ (its own .htaccess takes over there) ---
+
+# --- archived WordPress at /old/: keep out of Google, wp-admin still works ---
+<IfModule mod_headers.c>
+  SetEnvIf Request_URI "^/old/" OLDSITE
+  Header set X-Robots-Tag "noindex, nofollow" env=OLDSITE
+</IfModule>
