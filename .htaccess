@@ -38,6 +38,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)/$ /$1 [R=301,L]
 
 # /page.html -> /page (direct requests only, internal rewrites untouched)
+RewriteCond %{REQUEST_URI} !^/google[0-9a-f]+\.html$
 RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?]
 RewriteRule ^ /%1 [R=301,L]
 
