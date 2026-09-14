@@ -1,28 +1,47 @@
 # Contain-It static site — Apache config
-# Generated from vercel.json — single source of truth for redirects
+# Clean URLs: /storages serves storages.html; .html addresses 301 to the clean form.
+# NOTE: /old/ (archived WordPress) has its own .htaccess, these rewrites don't apply there.
 
 DirectoryIndex index.html
 Options -Indexes
 
-# --- 301s from old WordPress URLs (with and without trailing slash) ---
-RedirectMatch 301 ^/index\.html$ /
-RedirectMatch 301 ^/faq/?$ /faq.html
-RedirectMatch 301 ^/about-us/?$ /locations.html
-RedirectMatch 301 ^/contact-us/?$ /contact.html
-RedirectMatch 301 ^/gallery/?$ /storages.html
-RedirectMatch 301 ^/order-online/?$ /storages.html
-RedirectMatch 301 ^/product-category/storage/?$ /storages.html
-RedirectMatch 301 ^/product/storage/?$ /storages.html
-RedirectMatch 301 ^/storage-pods/?$ /storages.html
-RedirectMatch 301 ^/cart/?$ /storages.html
-RedirectMatch 301 ^/checkout/?$ /contact.html
-RedirectMatch 301 ^/google-review/?$ /contact.html
-RedirectMatch 301 ^/hello-world/?$ /
-RedirectMatch 301 ^/sitemap.html/?$ /sitemap.xml
-RedirectMatch 301 ^/self-storage-glasgow/?$ /glasgow.html
-RedirectMatch 301 ^/self-storage-paisley/?$ /paisley.html
+RewriteEngine On
 
-# --- caching: fingerprinted-ish assets long, HTML short ---
+# homepage aliases -> /
+RewriteRule ^index(\.html)?$ / [R=301,L]
+
+# legacy WordPress sitemap page
+RewriteRule ^sitemap\.html$ /sitemap.xml [R=301,L]
+
+# 301s from old WordPress URLs (with and without trailing slash)
+RewriteRule ^about-us/?$ /locations [R=301,L]
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^gallery/?$ /storages [R=301,L]
+RewriteRule ^order-online/?$ /storages [R=301,L]
+RewriteRule ^product-category/storage/?$ /storages [R=301,L]
+RewriteRule ^product/storage/?$ /storages [R=301,L]
+RewriteRule ^storage-pods/?$ /storages [R=301,L]
+RewriteRule ^cart/?$ /storages [R=301,L]
+RewriteRule ^checkout/?$ /contact [R=301,L]
+RewriteRule ^google-review/?$ /contact [R=301,L]
+RewriteRule ^hello-world/?$ / [R=301,L]
+RewriteRule ^self-storage-glasgow/?$ /glasgow [R=301,L]
+RewriteRule ^self-storage-paisley/?$ /paisley [R=301,L]
+
+# strip trailing slash on non-directories (/faq/ -> /faq)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# /page.html -> /page (direct requests only, internal rewrites untouched)
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
+
+# serve /page from page.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# --- caching: images/video long, css/js medium, HTML always fresh ---
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpeg "access plus 30 days"
@@ -32,8 +51,6 @@ RedirectMatch 301 ^/self-storage-paisley/?$ /paisley.html
   ExpiresByType application/javascript "access plus 7 days"
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
-
-# --- keep the archived WordPress reachable at /old/ (its own .htaccess takes over there) ---
 
 # --- archived WordPress at /old/: keep out of Google, wp-admin still works ---
 <IfModule mod_headers.c>
