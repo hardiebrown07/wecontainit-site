@@ -1,0 +1,35 @@
+# Contain-It static site — Apache config
+# Generated from vercel.json — single source of truth for redirects
+
+DirectoryIndex index.html
+Options -Indexes
+
+# --- 301s from old WordPress URLs (with and without trailing slash) ---
+RedirectMatch 301 ^/faq/?$ /faq.html
+RedirectMatch 301 ^/about-us/?$ /locations.html
+RedirectMatch 301 ^/contact-us/?$ /contact.html
+RedirectMatch 301 ^/gallery/?$ /storages.html
+RedirectMatch 301 ^/order-online/?$ /storages.html
+RedirectMatch 301 ^/product-category/storage/?$ /storages.html
+RedirectMatch 301 ^/product/storage/?$ /storages.html
+RedirectMatch 301 ^/storage-pods/?$ /storages.html
+RedirectMatch 301 ^/cart/?$ /storages.html
+RedirectMatch 301 ^/checkout/?$ /contact.html
+RedirectMatch 301 ^/google-review/?$ /contact.html
+RedirectMatch 301 ^/hello-world/?$ /
+RedirectMatch 301 ^/sitemap.html/?$ /sitemap.xml
+RedirectMatch 301 ^/self-storage-glasgow/?$ /glasgow.html
+RedirectMatch 301 ^/self-storage-paisley/?$ /paisley.html
+
+# --- caching: fingerprinted-ish assets long, HTML short ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- keep the archived WordPress reachable at /old/ (its own .htaccess takes over there) ---
