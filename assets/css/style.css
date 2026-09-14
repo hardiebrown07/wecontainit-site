@@ -807,10 +807,7 @@ html { background: var(--ink); }
 body { background: var(--bg); overflow-x: hidden; }
 .site-foot, .foot-legal-band { width: 100%; }
 
-/* hero headline: black outline so it holds up over bright video frames */
 .hero-v3 h1 {
-  paint-order: stroke fill;
-  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.9);
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
 }
 .hero-v3 .lede { text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
