@@ -5,6 +5,7 @@ DirectoryIndex index.html
 Options -Indexes
 
 # --- 301s from old WordPress URLs (with and without trailing slash) ---
+RedirectMatch 301 ^/index\.html$ /
 RedirectMatch 301 ^/faq/?$ /faq.html
 RedirectMatch 301 ^/about-us/?$ /locations.html
 RedirectMatch 301 ^/contact-us/?$ /contact.html

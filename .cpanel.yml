@@ -1,8 +1,0 @@
----
-deployment:
-  tasks:
-    - /bin/cp -f /home/conta312/wecontainit.co.uk/new-site-staging/*.html /home/conta312/wecontainit.co.uk/
-    - /bin/cp -f /home/conta312/wecontainit.co.uk/new-site-staging/robots.txt /home/conta312/wecontainit.co.uk/
-    - /bin/cp -f /home/conta312/wecontainit.co.uk/new-site-staging/sitemap.xml /home/conta312/wecontainit.co.uk/
-    - /bin/cp -f /home/conta312/wecontainit.co.uk/new-site-staging/.htaccess /home/conta312/wecontainit.co.uk/
-    - /bin/cp -Rf /home/conta312/wecontainit.co.uk/new-site-staging/assets /home/conta312/wecontainit.co.uk/
