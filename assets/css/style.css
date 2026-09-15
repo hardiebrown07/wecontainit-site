@@ -789,6 +789,7 @@ button { -webkit-appearance: none; appearance: none; font-family: inherit; color
 
 /* hero still is the section background; video only exists once it is playing */
 .bgvid-mount { position: absolute; inset: 0; }
+.bgvid-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-v3 .bgvid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 @media (max-width: 760px) { .hero-v3 .lede { font-size: 0.85rem; } }
