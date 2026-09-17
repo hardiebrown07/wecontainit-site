@@ -36,6 +36,11 @@ RewriteRule ^self-storage-paisley/?$ /paisley [R=301,L]
 # discontinued page
 RewriteRule ^vehicle-storage(\.html)?/?$ /storages [R=301,L]
 
+# review card short links (302 so we can re-point without stale caches)
+RewriteRule ^review-glasgow/?$ https://g.page/r/CddRCxb8NySPEBM/review [R=302,L]
+RewriteRule ^review-paisley/?$ https://g.page/r/CbqR52XTVF0KEBM/review [R=302,L]
+RewriteRule ^review/?$ https://g.page/r/CddRCxb8NySPEBM/review [R=302,L]
+
 # strip trailing slash on non-directories (/faq/ -> /faq)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)/$ /$1 [R=301,L]
