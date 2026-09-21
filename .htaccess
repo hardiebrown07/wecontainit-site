@@ -3,6 +3,7 @@
 # NOTE: /old/ (archived WordPress) has its own .htaccess, these rewrites don't apply there.
 
 DirectoryIndex index.html
+AddDefaultCharset UTF-8
 Options -Indexes
 
 RewriteEngine On
