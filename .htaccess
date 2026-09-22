@@ -30,11 +30,14 @@ RewriteRule ^cart/?$ /storages [R=301,L]
 RewriteRule ^checkout/?$ /contact [R=301,L]
 RewriteRule ^google-review/?$ /contact [R=301,L]
 RewriteRule ^hello-world/?$ / [R=301,L]
-RewriteRule ^self-storage-glasgow/?$ /glasgow [R=301,L]
-RewriteRule ^self-storage-paisley/?$ /paisley [R=301,L]
+RewriteRule ^self-storage-glasgow/?$ /locations [R=301,L]
+RewriteRule ^self-storage-paisley/?$ /locations [R=301,L]
 
 # discontinued page
 RewriteRule ^vehicle-storage(\.html)?/?$ /storages [R=301,L]
+
+# location pages removed: send to the combined locations page
+RewriteRule ^(glasgow|paisley)(\.html)?/?$ /locations [R=301,L]
 
 # review card short links (302 so we can re-point without stale caches)
 RewriteRule ^review-glasgow/?$ https://g.page/r/CddRCxb8NySPEBM/review [R=302,L]

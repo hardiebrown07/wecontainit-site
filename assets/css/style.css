@@ -845,3 +845,5 @@ body { background: var(--bg); overflow-x: hidden; }
 .loc-map { width: 100%; height: 420px; border: 0; display: block; }
 
 @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+
+.ff .req { color: var(--amber-text); font-weight: 700; }

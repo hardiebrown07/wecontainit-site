@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=153">
+<link rel="stylesheet" href="assets/css/style.css?v=154">
 </head>
 <body>
 <div class="loader" id="loader" aria-hidden="true">
@@ -114,13 +114,13 @@
       </div>
       <form class="quote-form contact2-card" id="quoteForm" novalidate>
         <div class="ff-row">
-          <div class="ff"><label for="qName">Full name</label><input id="qName" name="name" type="text" autocomplete="name" placeholder="Your full name" required></div>
-          <div class="ff"><label for="qEmail">Email address</label><input id="qEmail" name="email" type="email" autocomplete="email" placeholder="example@youremail.com"></div>
+          <div class="ff"><label for="qName">Full name <span class="req" aria-hidden="true">*</span></label><input id="qName" name="name" type="text" autocomplete="name" placeholder="Your full name" required></div>
+          <div class="ff"><label for="qEmail">Email address <span class="req" aria-hidden="true">*</span></label><input id="qEmail" name="email" type="email" autocomplete="email" placeholder="example@youremail.com" required></div>
         </div>
         <div class="ff-row">
-          <div class="ff"><label for="qPhone">Phone number</label><input id="qPhone" name="phone" type="tel" autocomplete="tel" placeholder="07123 456789" required></div>
-          <div class="ff"><label for="qWhere">Which location?</label>
-            <select id="qWhere" name="location"><option>Glasgow (Polmadie)</option><option>Paisley (Fulbar Road)</option></select>
+          <div class="ff"><label for="qPhone">Phone number <span class="req" aria-hidden="true">*</span></label><input id="qPhone" name="phone" type="tel" autocomplete="tel" placeholder="07123 456789" required></div>
+          <div class="ff"><label for="qWhere">Which location? <span class="req" aria-hidden="true">*</span></label>
+            <select id="qWhere" name="location" required><option value="" disabled selected>Choose a location</option><option>Glasgow (Polmadie)</option><option>Paisley (Fulbar Road)</option></select>
           </div>
         </div>
         <div class="ff-row">
@@ -129,7 +129,7 @@
           </div>
           <div class="ff"><label for="qWhen">Move-in date</label><input id="qWhen" name="movein" type="text" placeholder="e.g. start of October"></div>
         </div>
-        <div class="ff"><label for="qMsg">Message</label><textarea id="qMsg" name="message" rows="4" placeholder="Type your message here" required></textarea></div>
+        <div class="ff"><label for="qMsg">Message <span class="req" aria-hidden="true">*</span></label><textarea id="qMsg" name="message" rows="4" placeholder="Type your message here" required></textarea></div>
         <button class="btn btn-amber btn-block" type="submit">Send message</button>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
@@ -166,8 +166,8 @@
     <div class="foot-col">
       <p class="foot-h">Explore</p>
       <a href="/storages">Container sizes &amp; prices</a><br>
-      <a href="/glasgow">Self storage Glasgow</a><br>
-      <a href="/paisley">Self storage Paisley</a><br>
+      <a href="/locations">Self storage Glasgow</a><br>
+      <a href="/locations">Self storage Paisley</a><br>
       <a href="/business-storage">Business storage</a><br>
       <a href="/storage-pods">Storage pods delivered</a><br>
       <a href="/faq">Storage FAQs</a>
@@ -182,6 +182,6 @@
     <div class="wrap foot-legal"><p>© <span id="year">2026</span> Contain-It. Prices exclude VAT.</p></div>
   </div>
 </footer>
-<script src="assets/js/main.js?v=153"></script>
+<script src="assets/js/main.js?v=154"></script>
 </body>
 </html>
