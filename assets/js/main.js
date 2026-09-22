@@ -316,6 +316,14 @@
     });
   }
 
+  // Email links are assembled here so harvesters scraping the HTML find nothing
+  // usable. Without JS the address still reads as "info (at) wecontainit.co.uk".
+  document.querySelectorAll("a.eml").forEach(function (a) {
+    var addr = a.dataset.u + String.fromCharCode(64) + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 })();
