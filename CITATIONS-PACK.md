@@ -16,7 +16,7 @@ match the GBP, whatever it says.
 ## Glasgow listing
 
 - **Address:** 100 Jessie Street, Polmadie, Glasgow, G42 0PG
-- **Website:** https://wecontainit.co.uk/glasgow
+- **Website:** https://wecontainit.co.uk/locations
 - **Description:**
   Contain-It provides drive-up container self storage in the south side of Glasgow, just off
   Junction 1 of the M74. Choose from four sizes of secure steel storage units from £100 a month,
@@ -27,7 +27,7 @@ match the GBP, whatever it says.
 ## Paisley listing (where the directory allows a second branch)
 
 - **Address:** 4 Fulbar Road, Paisley, PA2 9AP
-- **Website:** https://wecontainit.co.uk/paisley
+- **Website:** https://wecontainit.co.uk/locations
 - **Description:**
   Contain-It offers drive-up container self storage in Paisley, ten minutes from the town centre
   and handy for the M8 and Glasgow Airport. Four sizes of secure steel storage units from £100 a
