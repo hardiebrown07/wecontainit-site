@@ -288,7 +288,7 @@
       };
       var dur = form.querySelector('input[name="duration"]:checked');
       if (dur) d.message = (d.message ? d.message + "\n" : "") + "Duration: " + dur.value;
-      if (!d.name || !d.phone) { status.textContent = "Add your name and phone number and we'll do the rest."; return; }
+      if (!d.name || !d.phone || !d.message) { status.textContent = "Add your name, phone number and a quick message and we'll do the rest."; return; }
       if (FORM_ENDPOINT) {
         status.textContent = "Sending…";
         var payload = {
