@@ -70,8 +70,14 @@
   // Hero background video: attached but fully transparent, so a native play
   // button can never be seen. It is revealed only once playback is confirmed,
   // and removed outright if autoplay never starts (iOS Low Power Mode).
+  // Phones keep the poster: a 4.9MB background video is not worth the data or
+  // the battery on mobile, and the still frame reads identically at that size.
+  var smallScreen = window.matchMedia("(max-width: 900px)").matches;
+  var saveData = (navigator.connection && (navigator.connection.saveData ||
+                  /2g|slow-2g/.test(navigator.connection.effectiveType || "")));
+
   document.querySelectorAll(".bgvid-mount").forEach(function (mount) {
-    if (reduce) return;                       // reduced motion: keep the still
+    if (reduce || smallScreen || saveData) return;   // keep the still
     var src = mount.dataset.src;
     if (!src) return;
 

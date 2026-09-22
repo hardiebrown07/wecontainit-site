@@ -71,6 +71,9 @@ RewriteRule ^(.+)$ $1.html [L]
 
 # --- archived WordPress at /old/: keep out of Google, wp-admin still works ---
 <IfModule mod_headers.c>
+  # tell browsers to go straight to https next time (kills the redirect hop)
+  Header always set Strict-Transport-Security "max-age=31536000"
+
   SetEnvIf Request_URI "^/old/" OLDSITE
   Header set X-Robots-Tag "noindex, nofollow" env=OLDSITE
 </IfModule>

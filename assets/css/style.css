@@ -847,3 +847,12 @@ body { background: var(--bg); overflow-x: hidden; }
 @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
 
 .ff .req { color: var(--amber-text); font-weight: 700; }
+
+/* small spacing utilities (replaces inline styles) */
+.mt-10 { margin-top: 10px; }
+.mt-14 { margin-top: 14px; }
+.mt-18 { margin-top: 18px; }
+.mt-26 { margin-top: 26px; }
+.mt-34 { margin-top: 34px; }
+.mt-40 { margin-top: 40px; }
+.pt-24 { padding-top: 24px; }
